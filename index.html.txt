@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <h1>作业管理工具</h1>
+  <div>
+    <input type="text" placeholder="科目" id="subject">
+    <input type="text" placeholder="作业内容" id="content">
+    <input type="date" id="deadline">
+    <button onclick="addHomework()">添加作业</button>
+  </div>
+  <ul id="homeworkList"></ul>
+
+  <script>
+    function addHomework() {
+      const subject = document.getElementById('subject').value;
+      const content = document.getElementById('content').value;
+      const deadline = document.getElementById('deadline').value;
+      const list = document.getElementById('homeworkList');
+      const li = document.createElement('li');
+      li.innerHTML = `${subject}：${content}（截止：${deadline}） <button onclick="this.parentElement.remove()">完成</button>`;
+      list.appendChild(li);
+    }
+  </script>
+</body>
+</html>
